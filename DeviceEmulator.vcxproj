@@ -84,7 +84,7 @@
       <CallingConvention>FastCall</CallingConvention>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libcmt.lib;winmm.lib;comdlg32.lib;iphlpapi.lib;shlwapi.lib;setupapi.lib;htmlhelp.lib;msxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msvcrt.lib;libcmt.lib;winmm.lib;comdlg32.lib;iphlpapi.lib;shlwapi.lib;setupapi.lib;htmlhelp.lib;msxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
