@@ -313,10 +313,15 @@ bool Load_BIN_NB0_File(const wchar_t *RomImageFile)
 		// BIN file
 		// starts with B000FF
 		return LoadBINFile(RomImage,FileSize);
-	} else if((*((int *)&SigLocal[0]) & 0xea000000) == 0xea000000){
-		// NB0 file
-		// assumption: always starts with a branch instruction 0xeaXXXXXX
-		return LoadNB0File(RomImage, FileSize);
+	} else {
+		unsigned __int32 fileOffset = 0;
+		while (fileOffset < FileSize - 4 && !RomImage[fileOffset])
+			++fileOffset;
+		if ((fileOffset & 3) == 0 && RomImage[fileOffset + 3] == 0xEA) {
+			// NB0 file
+			// assumption: always starts with a branch instruction 0xea
+			return LoadNB0File(RomImage, FileSize);
+		}
 	}
 
 	ShowDialog(ID_MESSAGE_INVALID_ROM_IMAGE_TYPE);
