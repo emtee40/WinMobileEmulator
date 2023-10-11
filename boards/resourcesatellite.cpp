@@ -135,6 +135,19 @@ HMODULE ResourceSatellite::LoadSatelliteDLL(LANGID DesiredLanguage)
     if (!FAILED(StringCchPrintfW(SatellitePath, MAX_PATH, L"%s\\%s\\%s", BaseDirectory, buffer, SATELLITE_NAME) )) {
         hDLL = LoadLibrary(SatellitePath);
     }
+
+    // Return if the satellite was loaded
+    if (hDLL)
+        return hDLL;
+
+    // Get the default language
+    if (getLocalizedDirectory(DEFAULT_LANGUAGE, BaseDirectory, MAX_PATH, buffer, 100) == false)
+        return NULL;
+
+    // Try to load the library with the default language
+    if (!FAILED(StringCchPrintfW(SatellitePath, MAX_PATH, L"%s\\%s\\%s", BaseDirectory, buffer, SATELLITE_NAME))) {
+        hDLL = LoadLibrary(SatellitePath);
+    }
     return hDLL;
 }
 
