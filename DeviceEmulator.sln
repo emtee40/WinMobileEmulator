@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DeviceEmulator", "DeviceEmulator.vcxproj", "{5EA90356-2FC8-43B8-98C2-7A2F82F8D1FD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{57721148-37FB-4F82-B6CF-88E246C048D6} = {57721148-37FB-4F82-B6CF-88E246C048D6}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "armcpu", "cpus\arm\armcpu.vcxproj", "{2A898BB4-AD27-43F6-978A-38E5A25797E6}"
 EndProject

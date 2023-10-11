@@ -17,3 +17,7 @@ features/ui/config/Debug/
 features/ui/config/Releases/
 
 debug/
+release/
+*.bin
+*.nb0
+!boards/smdk2410/resources/*.bin
