@@ -57,7 +57,7 @@ struct {
 #define PHYSICAL_MEMORY_EXTENSION_MAX_SIZE (192*1024*1024) // max size is 192mb
 
 #define FLASH_BANK0_BASE    0x00000000
-#define FLASH_BANK0_SIZE    (32*1024*1024)
+#define FLASH_BANK0_SIZE    (128*1024*1024)
 
 #define INITIAL_STACK_POINTER              (PHYSICAL_MEMORY_BASE+0x10000)  // an arbitrary address within physical RAM
 
@@ -85,7 +85,7 @@ typedef struct {
 
 //---Copied from CE's platform\common\src\inc\oal_kitl.h----------------------------------------------
 #pragma warning (push)
-#pragma warning (disable:4201) //nonstandard extension used : nameless struct/union 
+#pragma warning (disable:4201) //nonstandard extension used : nameless struct/union
 
 typedef struct {
     DWORD IfcType;
@@ -257,7 +257,7 @@ size_t __fastcall BoardMapGuestPhysicalToHost(unsigned __int32 EffectiveAddress,
         *pHostAdjust = (size_t)PhysicalMemory-PHYSICAL_MEMORY_BASE;
         HostAddress = (size_t)EffectiveAddress+(size_t)PhysicalMemory-PHYSICAL_MEMORY_BASE;
     } else if (EffectiveAddress >= FLASH_BANK0_BASE && EffectiveAddress < FLASH_BANK0_BASE+sizeof(FlashBank0)) {
-        // Attempts to read from physical 0...32mb are treated as reads from FlashBank0.
+        // Attempts to read from physical 0...128mb are treated as reads from FlashBank0.
         // Attempts to write to that region are treated as memory-mapped IO.
         *pHostAdjust = 0; // Use 0 instead of (size_t)FlashBank0 otherwise TLB established
                           // for reads will cause write to go directly to flash instead of

@@ -16,7 +16,7 @@ Addresses must be in sorted order:  the table is accessed via a binary search.
 // Note: this file is multiply-included, so do not protect with "#pragma once" or "#if"
 
 // addresses taken from map.a
-MAPPEDIODEVICE(IOAM29LV800BB ,  CSSROMBank0,          0x00000000, 32*1024*1024) // from map.s's "32 MB SROM(SRAM/ROM) BANK 0"
+MAPPEDIODEVICE(IOAM29LV800BB ,  CSSROMBank0,          0x00000000, 128*1024*1024) // from map.s's "32 MB SROM(SRAM/ROM) BANK 0"
 // from pcmcia.c (PD6710_MEM_BASE_ADDRESS and the 32mb that follows)
 MAPPEDIODEVICE(IOMAPPEDMEMPCMCIA,  MAPPEDMEMPCMCIA,    0x10000000,0xFFFF)// Address space for Memory Mapped PCMCIA operations
 MAPPEDIODEVICE(IOMAPPEDIOPCMCIA,  MAPPEDIOPCMCIA, 0x10010000, 0xFF03DF) //Address space for IO Mapped PCMCIA operations
