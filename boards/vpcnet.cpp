@@ -16,7 +16,6 @@
 #include "resource.h"
 #include "CompletionPort.h"
 #include "VPCNet.h"
-#include <winioctl.h>
 #include <iphlpapi.h>
 #include <setupapi.h>
 #include <devguid.h>

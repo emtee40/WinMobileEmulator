@@ -88,8 +88,16 @@ typedef struct {
 #pragma warning (disable:4201) //nonstandard extension used : nameless struct/union 
 
 typedef struct {
+    DWORD IfcType;
+    DWORD BusNumber;
+    DWORD LogicalLoc;
+    PVOID PhysicalLoc;
+    DWORD Pin;
+} OAL_DEVICE_LOCATION;
+
+typedef struct {
     UINT32 flags;
-    DEVICE_LOCATION devLoc;                     // KITL device location
+    OAL_DEVICE_LOCATION devLoc;                     // KITL device location
     union {
         struct {                                // Serial class parameters
             UINT32 baudRate;
